@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JJSoluciones - Tecnología que Impulsa tu Negocio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head> 
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    :root {
+      --primary: #000000;
+      --secondary: #ffffff;
+      --accent: #1d1d1f;
+      --light-gray: #f5f5f7;
+      --gray: #86868b;
+      --dark-gray: #1d1d1f;
+      --border: rgba(255, 255, 255, 0.1);
+      --success: #30d158;
+    }
+    
+    body {
+      color: var(--secondary);
+      background-color: var(--primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Aurora Background */
+    .aurora-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    #auroraCanvas {
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Header transparente estilo moderno */
+    header {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      z-index: 100;
+      background: rgba(29, 29, 31, 0.7);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 0.8rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      font-size: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--secondary);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .contact-btn {
+      color: var(--primary);
+      background: var(--secondary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      border: none;
+      font-weight: 500;
+    }
+    
+    .contact-btn:hover {
+      background: var(--gray);
+      transform: scale(1.05);
+    }
+    
+    /* Hero Section - con Aurora */
+    .hero {
+      position: relative;
+      padding: 12rem 0 4rem;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      color: var(--secondary);
+      letter-spacing: -2px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero .subtitle {
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.1s forwards;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.4s forwards;
+      margin-bottom: 3rem;
+    }
+
+    .cta-btn {
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 0.875rem 2rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .cta-btn:hover {
+      background: var(--gray);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--secondary);
+      padding: 0.875rem 2rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 2px solid var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Masonry Gallery Styles */
+    .masonry-gallery {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.6s forwards;
+      position: relative;
+      z-index: 2;
+    }
+
+    .list {
+      position: relative;
+      width: 100%;
+      min-height: 600px;
+    }
+
+    .item-wrapper {
+      position: absolute;
+      will-change: transform, width, height, opacity;
+      padding: 6px;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .item-wrapper.loaded {
+      opacity: 1;
+    }
+
+    .item-wrapper:hover {
+      transform: scale(0.95);
+      z-index: 10;
+    }
+
+    .item-wrapper > .item-img {
+      position: relative;
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 10px 50px -10px rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .item-wrapper:hover > .item-img {
+      box-shadow: 0px 20px 60px -10px rgba(255, 255, 255, 0.3);
+    }
+
+    .item-img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .item-wrapper:hover .item-img::after {
+      opacity: 1;
+    }
+    
+    /* Services Section con Spotlight Effect */
+    .services {
+      padding: 6rem 0;
+      background: var(--primary);
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-heading {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-heading .label {
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    
+    .section-heading p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    /* Spotlight Card Effect */
+    .service-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
+
+    /* Spotlight effect overlay */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.15),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Asegurar que el contenido esté por encima del efecto */
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    
+    .service-card p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    .learn-more {
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .learn-more:hover {
+      gap: 0.5rem;
+    }
+    
+    .learn-more span {
+      margin-left: 0.3rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .learn-more:hover span {
+      transform: translateX(5px);
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 6rem 0;
+      background: var(--accent);
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.5rem;
+      transition: all 0.4s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+      border-color: var(--secondary);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--secondary);
+      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .pricing-header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-type {
+      font-size: 1.125rem;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price span {
+      font-size: 1.5rem;
+      color: var(--gray);
+    }
+
+    .pricing-period {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .pricing-features {
+      margin-bottom: 2rem;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .pricing-feature-icon {
+      color: var(--success);
+      margin-right: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .pricing-btn {
+      display: block;
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 0.875rem;
+      border-radius: 980px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border: none;
+    }
+
+    .pricing-btn:hover {
+      background: var(--gray);
+      transform: scale(1.02);
+    }
+
+    .pricing-card.featured .pricing-btn {
+      background: var(--secondary);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+    
+    /* About Section */
+    .about {
+      padding: 6rem 0;
+      background: var(--primary);
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+    
+    .about-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .about-image {
+      flex: 1;
+      position: relative;
+    }
+    
+    .about-illustration {
+      width: 100%;
+      height: 450px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 6rem 0;
+      background: var(--accent);
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--secondary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .contact-text h3 {
+      font-size: 1.125rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-text p {
+      color: var(--gray);
+    }
+
+    .contact-form {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.875rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--secondary);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .form-input::placeholder {
+      color: var(--gray);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    .form-submit {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 0.875rem 2rem;
+      border-radius: 980px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .form-submit:hover {
+      background: var(--gray);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--secondary);
+      padding: 3rem 0 1.5rem;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .footer-description {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-link:hover {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: translateY(-3px);
+      border-color: var(--secondary);
+    }
+    
+    .footer-heading {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .footer-link {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+    
+    .footer-link:hover {
+      color: var(--secondary);
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.875rem;
+    }
+    
+    .footer-bottom a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--secondary);
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      border: none;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: var(--gray);
+      transform: translateY(-5px);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 2rem;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+      border-left: 1px solid var(--border);
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      margin-top: 3rem;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.3s ease;
+      font-size: 1.125rem;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--secondary);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .section-heading h2 {
+        font-size: 2.25rem;
+      }
+      
+      .contact-wrapper {
+        flex-direction: column;
+      }
+
+      header {
+        width: 95%;
+        padding: 0.6rem 1.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.25rem;
+      }
+      
+      .services-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      
+.about-stats {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn, .cta-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero {
+    padding: 10rem 0 4rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .section-heading h2 {
+    font-size: 1.75rem;
+  }
+
+  .masonry-gallery {
+    padding: 0 1rem;
+  }
+}
+</style>
+<body>
+  <!-- Aurora Background -->
+  <div class="aurora-container">
+    <canvas id="auroraCanvas"></canvas>
+  </div>
+  <!-- Header Transparente -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <i class="fas fa-bolt"></i>
+        JJSoluciones
+      </a>
+  <nav class="nav-links">
+    <a href="#inicio" class="active">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+  </header>
+  <!-- Mobile Menu -->
+  <div class="overlay" onclick="toggleMobileMenu()"></div>
+  <div class="mobile-menu">
+    <button class="close-menu" onclick="toggleMobileMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <nav class="mobile-nav">
+      <a href="#inicio" class="mobile-nav-link" onclick="toggleMobileMenu()">Inicio</a>
+      <a href="#servicios" class="mobile-nav-link" onclick="toggleMobileMenu()">Servicios</a>
+      <a href="#nosotros" class="mobile-nav-link" onclick="toggleMobileMenu()">Nosotros</a>
+      <a href="#precios" class="mobile-nav-link" onclick="toggleMobileMenu()">Precios</a>
+      <a href="#contacto" class="mobile-nav-link" onclick="toggleMobileMenu()">Contacto</a>
+</nav>
+  </div>
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <p class="subtitle">Tecnología que impulsa tu negocio</p>
+        <h1>JJSoluciones</h1>
+        <p>Reparación, mantenimiento y desarrollo web profesional. Transformamos tus ideas en soluciones digitales de alto impacto.</p>
+    <div class="cta-group">
+      <a href="#contacto" class="cta-btn">Solicitar presupuesto</a>
+      <a href="#servicios" class="cta-btn-secondary">Ver servicios</a>
+    </div>
+  </div>
+  
+  <!-- Masonry Gallery -->
+  <div class="masonry-gallery">
+    <div class="list" id="masonryContainer"></div>
+  </div>
+</div>
+  </section>
+  <!-- Services Section con Spotlight Effect -->
+  <section class="services" id="servicios">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">Nuestros Servicios</p>
+        <h2>Todo lo que necesitas en un solo lugar</h2>
+        <p>Soluciones tecnológicas integrales para particulares y empresas</p>
+      </div>
+  <div class="services-grid">
+    <!-- Service 1 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-desktop service-icon"></i>
+      <h3>Reparación de PC</h3>
+      <p>Formateo, optimización, cambio de componentes, eliminación de virus y mantenimiento completo para computadoras de escritorio.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+    
+    <!-- Service 2 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-laptop service-icon"></i>
+      <h3>Mantenimiento Notebooks</h3>
+      <p>Servicio especializado para laptops: limpieza, cambio de pasta térmica, reparación de lentitud y actualización de componentes.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+    
+    <!-- Service 3 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-code service-icon"></i>
+      <h3>Desarrollo Web</h3>
+      <p>Sitios web profesionales desde $70.000. Landing pages, websites personalizados y actualización de sitios existentes.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-cloud service-icon"></i>
+      <h3>Cloud Computing</h3>
+      <p>Almacenamiento y hosting desde $20.000/mes. Soluciones en la nube seguras y escalables para tu negocio.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-shield-alt service-icon"></i>
+      <h3>Mantenimiento Premium</h3>
+      <p>Servicio completo: limpieza + formateo + optimización + revisión general. Tu equipo como nuevo.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="service-card spotlight-card">
+      <i class="fas fa-headset service-icon"></i>
+      <h3>Asistencia Remota</h3>
+      <p>Soporte técnico online para resolver problemas sin salir de casa. Rápido, eficiente y seguro.</p>
+      <a href="#contacto" class="learn-more">
+        Más información <span>→</span>
+      </a>
+    </div>
+  </div>
+</div>
+  </section>
+  <!-- Pricing Section -->
+  <section class="pricing" id="precios">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">Precios</p>
+        <h2>Planes transparentes y accesibles</h2>
+        <p>Elige el plan que mejor se adapte a tus necesidades</p>
+      </div>
+  <div class="pricing-grid">
+    <!-- Plan 1 -->
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <p class="pricing-type">Website Basic</p>
+        <div class="pricing-price">$70.000</div>
+        <p class="pricing-period">Pago único</p>
+      </div>
+      <div class="pricing-features">
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Diseño responsivo
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Hasta 5 secciones
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Optimización SEO básica
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Formulario de contacto
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Entrega en 7 días
+        </div>
+      </div>
+      <a href="#contacto" class="pricing-btn">Comenzar</a>
+    </div>
+
+    <!-- Plan 2 - Featured -->
+    <div class="pricing-card featured">
+      <div class="pricing-header">
+        <p class="pricing-type">Website Premium</p>
+        <div class="pricing-price">$90.000</div>
+        <p class="pricing-period">Pago único</p>
+      </div>
+      <div class="pricing-features">
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Todo lo del plan Basic
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Hasta 10 secciones
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Optimización SEO avanzada
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Integración con redes sociales
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Panel de administración
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Soporte 30 días
+        </div>
+      </div>
+      <a href="#contacto" class="pricing-btn">Comenzar</a>
+    </div>
+
+    <!-- Plan 3 -->
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <p class="pricing-type">Cloud Computing</p>
+        <div class="pricing-price">$20.000 <span>/mes</span></div>
+        <p class="pricing-period">Por equipo</p>
+      </div>
+      <div class="pricing-features">
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Almacenamiento seguro
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Hosting básico incluido
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Backup automático
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Acceso 24/7
+        </div>
+        <div class="pricing-feature">
+          <i class="fas fa-check pricing-feature-icon"></i>
+          Soporte técnico
+        </div>
+      </div>
+      <a href="#contacto" class="pricing-btn">Comenzar</a>
+    </div>
+  </div>
+</div>
+  </section>
+  <!-- About Section -->
+  <section class="about" id="nosotros">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Sobre JJSoluciones</h2>
+          <p>Somos un equipo de 3 profesionales especializados en tecnología, comprometidos con ofrecer soluciones de calidad para particulares y empresas.</p>
+          <p>Desde reparaciones y mantenimiento hasta desarrollo web y servicios en la nube, nos enfocamos en entregar resultados excepcionales y un servicio personalizado que supere tus expectativas.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Clientes Satisfechos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">250+</div>
+          <div class="stat-label">Equipos Reparados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Sitios Web Creados</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-image">
+      <div class="about-illustration"></div>
+    </div>
+  </div>
+</div>
+  </section>
+  <!-- Contact Section -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="section-heading">
+        <p class="label">Contacto</p>
+        <h2>Hablemos de tu proyecto</h2>
+        <p>Estamos aquí para ayudarte. Contáctanos y te responderemos a la brevedad.</p>
+      </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-text">
+          <h3>Email</h3>
+          <p>contacto@jjsoluciones.com</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-text">
+          <h3>Teléfono</h3>
+          <p>+54 9 11 1234-5678</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-text">
+          <h3>Ubicación</h3>
+          <p>Buenos Aires, Argentina</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="contact-text">
+          <h3>Horario</h3>
+          <p>Lun - Vie: 9:00 - 18:00<br>Sáb: 10:00 - 14:00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-input" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Servicio de interés</label>
+          <input type="text" class="form-input" placeholder="Ej: Desarrollo Web, Reparación PC">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-input form-textarea" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">JJSoluciones</div>
+          <p class="footer-description">
+            Soluciones tecnológicas profesionales para impulsar tu negocio. Reparación, desarrollo web y servicios en la nube.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+    <div>
+      <h3 class="footer-heading">Servicios</h3>
+      <div class="footer-links">
+        <a href="#servicios" class="footer-link">Reparación PC</a>
+        <a href="#servicios" class="footer-link">Notebooks</a>
+        <a href="#servicios" class="footer-link">Desarrollo Web</a>
+        <a href="#servicios" class="footer-link">Cloud Computing</a>
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="footer-heading">Empresa</h3>
+      <div class="footer-links">
+        <a href="#nosotros" class="footer-link">Sobre Nosotros</a>
+        <a href="#precios" class="footer-link">Precios</a>
+        <a href="#contacto" class="footer-link">Contacto</a>
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="footer-heading">Legal</h3>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Términos y Condiciones</a>
+        <a href="#" class="footer-link">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 JJSoluciones. Todos los derechos reservados.</p>
+  </div>
+</div>
+  </footer>
+  <!-- Scroll to top button -->
+  <button class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script>
+    // ========================================
+    // AURORA BACKGROUND EFFECT
+    // ========================================
+    class AuroraBackground {
+      constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.gl = this.canvas.getContext('webgl2', { 
+          alpha: true, 
+          premultipliedAlpha: true,
+          antialias: true 
+        });
+        
+        if (!this.gl) {
+          console.error('WebGL 2 no soportado');
+          return;
+        }
+
+        this.time = 0;
+        this.init();
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.animate();
+      }
+
+      init() {
+        const gl = this.gl;
+        
+        // Configurar blend
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+        gl.clearColor(0, 0, 0, 0);
+
+        // Vertex Shader
+        const vertexShaderSource = `#version 300 es
+          in vec2 position;
+          void main() {
+            gl_Position = vec4(position, 0.0, 1.0);
+          }
+        `;
+
+        // Fragment Shader con efecto Aurora
+        const fragmentShaderSource = `#version 300 es
+          precision highp float;
+          
+          uniform float uTime;
+          uniform vec2 uResolution;
+          
+          out vec4 fragColor;
+          
+          vec3 permute(vec3 x) {
+            return mod(((x * 34.0) + 1.0) * x, 289.0);
+          }
+          
+          float snoise(vec2 v){
+            const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+            vec2 i  = floor(v + dot(v, C.yy));
+            vec2 x0 = v - i + dot(i, C.xx);
+            vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+            vec4 x12 = x0.xyxy + C.xxzz;
+            x12.xy -= i1;
+            i = mod(i, 289.0);
+            
+            vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+            vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+            m = m * m;
+            m = m * m;
+            
+            vec3 x = 2.0 * fract(p * C.www) - 1.0;
+            vec3 h = abs(x) - 0.5;
+            vec3 ox = floor(x + 0.5);
+            vec3 a0 = x - ox;
+            m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+            
+            vec3 g;
+            g.x  = a0.x  * x0.x  + h.x  * x0.y;
+            g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+            return 130.0 * dot(m, g);
+          }
+          
+          void main() {
+            vec2 uv = gl_FragCoord.xy / uResolution;
+            
+            // Colores del aurora (blanco a gris claro)
+            vec3 color1 = vec3(1.0, 1.0, 1.0);
+            vec3 color2 = vec3(0.8, 0.8, 0.9);
+            vec3 color3 = vec3(0.9, 0.9, 1.0);
+            
+            vec3 rampColor = mix(color1, mix(color2, color3, uv.x), uv.x);
+            
+            float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5;
+            height = exp(height);
+            height = (uv.y * 2.0 - height + 0.2);
+            float intensity = 0.6 * height;
+            
+            float midPoint = 0.20;
+            float auroraAlpha = smoothstep(midPoint - 0.25, midPoint + 0.25, intensity);
+            
+            vec3 auroraColor = intensity * rampColor;
+            
+            fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha * 0.3);
+          }
+        `;
+
+        // Compilar shaders
+        const vertexShader = this.createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+        // Crear programa
+        this.program = gl.createProgram();
+        gl.attachShader(this.program, vertexShader);
+        gl.attachShader(this.program, fragmentShader);
+        gl.linkProgram(this.program);
+
+        if (!gl.getProgramParameter(this.program, gl.LINK_STATUS)) {
+          console.error('Error al linkear programa:', gl.getProgramInfoLog(this.program));
+          return;
+        }
+
+        // Crear geometría (triángulo que cubre toda la pantalla)
+        const positions = new Float32Array([
+          -1, -1,
+           3, -1,
+          -1,  3
+        ]);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+        // Obtener ubicaciones de atributos y uniforms
+        this.positionLocation = gl.getAttribLocation(this.program, 'position');
+        this.timeLocation = gl.getUniformLocation(this.program, 'uTime');
+        this.resolutionLocation = gl.getUniformLocation(this.program, 'uResolution');
+
+        // Configurar atributo de posición
+        gl.enableVertexAttribArray(this.positionLocation);
+        gl.vertexAttribPointer(this.positionLocation, 2, gl.FLOAT, false, 0, 0);
+      }
+
+      createShader(gl, type, source) {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          console.error('Error al compilar shader:', gl.getShaderInfoLog(shader));
+          gl.deleteShader(shader);
+          return null;
+        }
+
+        return shader;
+      }
+
+      resize() {
+        const displayWidth = this.canvas.clientWidth;
+        const displayHeight = this.canvas.clientHeight;
+
+        if (this.canvas.width !== displayWidth || this.canvas.height !== displayHeight) {
+          this.canvas.width = displayWidth;
+          this.canvas.height = displayHeight;
+          this.gl.viewport(0, 0, displayWidth, displayHeight);
+        }
+      }
+
+      animate() {
+        const gl = this.gl;
+        
+        this.time += 0.01;
+        
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.useProgram(this.program);
+        
+        gl.uniform1f(this.timeLocation, this.time);
+        gl.uniform2f(this.resolutionLocation, this.canvas.width, this.canvas.height);
+        
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // ========================================
+    // MASONRY GALLERY CON IMÁGENES LOCALES
+    // ========================================
+    
+    // INSTRUCCIONES PARA USAR IMÁGENES LOCALES:
+    // 1. Crea una carpeta llamada "images" en la misma ubicación que este archivo HTML
+    // 2. Coloca tus imágenes dentro con los nombres: img1.jpg, img2.jpg, img3.jpg, etc.
+    // 3. O cambia las rutas abajo por las rutas de tus imágenes
+    
+    const galleryItems = [
+      { id: 1, img: './images/img1.jpg', height: 600 },
+      { id: 2, img: './images/img2.jpg', height: 800 },
+      { id: 3, img: './images/img3.jpg', height: 700 },
+      { id: 4, img: './images/img4.jpg', height: 650 },
+      { id: 5, img: './images/img5.jpg', height: 750 },
+      { id: 6, img: './images/img6.jpg', height: 680 },
+      { id: 7, img: './images/img7.jpg', height: 720 },
+      { id: 8, img: './images/img8.jpg', height: 640 },
+    ];
+
+    // Masonry Layout Engine
+    class MasonryGallery {
+      constructor(container, items) {
+        this.container = container;
+        this.items = items;
+        this.columns = this.getColumns();
+        this.init();
+        
+        window.addEventListener('resize', () => {
+          const newColumns = this.getColumns();
+          if (newColumns !== this.columns) {
+            this.columns = newColumns;
+            this.layout();
+          }
+        });
+      }
+
+      getColumns() {
+        const width = window.innerWidth;
+        if (width >= 1500) return 5;
+        if (width >= 1000) return 4;
+        if (width >= 600) return 3;
+        if (width >= 400) return 2;
+        return 1;
+      }
+
+      async init() {
+        await this.preloadImages();
+        this.render();
+        this.layout();
+        
+        setTimeout(() => {
+          this.animateIn();
+        }, 100);
+      }
+
+      preloadImages() {
+        return Promise.all(
+          this.items.map(item => {
+            return new Promise(resolve => {
+              const img = new Image();
+              img.src = item.img;
+              img.onload = img.onerror = () => resolve();
+            });
+          })
+        );
+      }
+
+      render() {
+        this.container.innerHTML = '';
+        this.items.forEach(item => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'item-wrapper';
+          wrapper.dataset.id = item.id;
+          
+          const imgDiv = document.createElement('div');
+          imgDiv.className = 'item-img';
+          imgDiv.style.backgroundImage = `url(${item.img})`;
+          
+          wrapper.appendChild(imgDiv);
+          this.container.appendChild(wrapper);
+        });
+      }
+
+      layout() {
+        const containerWidth = this.container.offsetWidth;
+        const columnWidth = containerWidth / this.columns;
+        const colHeights = new Array(this.columns).fill(0);
+
+        this.items.forEach((item, index) => {
+          const wrapper = this.container.querySelector(`[data-id="${item.id}"]`);
+          if (!wrapper) return;
+
+          const col = colHeights.indexOf(Math.min(...colHeights));
+          const x = columnWidth * col;
+          const height = item.height / 2;
+          const y = colHeights[col];
+
+          wrapper.style.transform = `translate(${x}px, ${y}px)`;
+          wrapper.style.width = `${columnWidth}px`;
+          wrapper.style.height = `${height}px`;
+
+          colHeights[col] += height;
+        });
+
+        const maxHeight = Math.max(...colHeights);
+        this.container.style.height = `${maxHeight}px`;
+      }
+
+      animateIn() {
+        const wrappers = this.container.querySelectorAll('.item-wrapper');
+        wrappers.forEach((wrapper, index) => {
+          setTimeout(() => {
+            wrapper.classList.add('loaded');
+          }, index * 50);
+        });
+      }
+    }
+
+    // ========================================
+    // INICIALIZACIÓN
+    // ========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inicializar Aurora Background
+      new AuroraBackground('auroraCanvas');
+      
+      // Inicializar Masonry Gallery
+      const container = document.getElementById('masonryContainer');
+      new MasonryGallery(container, galleryItems);
+    });
+
+    // ========================================
+    // HEADER SCROLL EFFECT
+    // ========================================
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      const scrollTop = document.querySelector('.scroll-top');
+      
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      if (window.scrollY > 300) {
+        scrollTop.classList.add('visible');
+      } else {
+        scrollTop.classList.remove('visible');
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.overlay');
+      mobileMenu.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Animate service cards on scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      observer.observe(card);
+    });
+
+// Spotlight effect
+document.querySelectorAll('.spotlight-card').forEach(card => {
+  card.addEventListener('mousemove', function(e) {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
