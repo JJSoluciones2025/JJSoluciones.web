@@ -1142,8 +1142,346 @@
     font-size: 1.25rem;
   }
 }
+  /* Asistente JJ Widget */
+.assistant-widget {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.assistant-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.assistant-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.assistant-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.robot-face {
+  position: relative;
+  z-index: 2;
+}
+
+.robot-visor {
+  width: 50px;
+  height: 20px;
+  background: #000;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.robot-eye {
+  width: 8px;
+  height: 16px;
+  background: #b794f4;
+  position: absolute;
+  top: 2px;
+  border-radius: 2px;
+  animation: eyeGlow 2s ease-in-out infinite;
+}
+
+.robot-eye.left {
+  left: 10px;
+}
+
+.robot-eye.right {
+  right: 10px;
+}
+
+@keyframes eyeGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px #b794f4;
+  }
+  50% {
+    box-shadow: 0 0 15px #b794f4, 0 0 25px #b794f4;
+  }
+}
+
+.assistant-card {
+  background: rgba(29, 29, 31, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-width: 280px;
+  max-width: 320px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.assistant-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.assistant-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.assistant-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.assistant-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.assistant-greeting {
+  color: var(--secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.assistant-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.assistant-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.assistant-btn i {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.assistant-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.assistant-social {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.social-title {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.assistant-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.assistant-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.assistant-social-link:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  transform: translateY(-3px);
+  border-color: var(--secondary);
+}
+
+.close-assistant {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 1.25rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-assistant:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .assistant-widget {
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .assistant-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .robot-visor {
+    width: 40px;
+    height: 16px;
+  }
+
+  .robot-eye {
+    width: 6px;
+    height: 12px;
+  }
+
+  .assistant-card {
+    min-width: 260px;
+    max-width: calc(100vw - 2rem);
+  }
+}
 </style>
 <body>
+  <!-- Asistente JJ Widget -->
+<div class="assistant-widget">
+  <div class="assistant-avatar" onclick="toggleAssistant()">
+    <div class="robot-face">
+      <div class="robot-visor">
+        <div class="robot-eye left"></div>
+        <div class="robot-eye right"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="assistant-card" id="assistantCard">
+    <button class="close-assistant" onclick="toggleAssistant()">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="assistant-header">
+      <div class="assistant-title">
+        Asistente JJ
+        <span class="status-indicator"></span>
+      </div>
+      <p class="assistant-subtitle">Tu guía tecnológica</p>
+    </div>
+
+    <p class="assistant-greeting">
+      ¡Hola! Soy el Asistente JJ. Estoy aquí para ayudarte con todo lo que necesites. ¿En qué puedo asistirte hoy?
+    </p>
+
+    <div class="assistant-buttons">
+      <button class="assistant-btn" onclick="scrollToSection('nosotros')">
+        <i class="fas fa-robot"></i>
+        ¿Quién Soy?
+      </button>
+      
+      <button class="assistant-btn" onclick="scrollToSection('contacto')">
+        <i class="fas fa-envelope"></i>
+        Contactarnos
+      </button>
+      
+      <button class="assistant-btn" onclick="scrollToSection('servicios')">
+        <i class="fas fa-cogs"></i>
+        Servicios
+      </button>
+      
+      <button class="assistant-btn" onclick="showSocial()">
+        <i class="fas fa-share-alt"></i>
+        Nuestras Redes
+      </button>
+    </div>
+
+    <div class="assistant-social" id="assistantSocial" style="display: none;">
+      <p class="social-title">Síguenos en redes sociales</p>
+      <div class="assistant-social-links">
+        <a href="https://www.instagram.com/jjdevcode/" target="_blank" class="assistant-social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/2353405216" target="_blank" class="assistant-social-link">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Aurora Background -->
   <div class="aurora-container">
     <canvas id="auroraCanvas"></canvas>
@@ -1992,10 +2330,40 @@ document.querySelectorAll('.spotlight-card').forEach(card => {
       alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
       this.reset();
     });
+
+    // Toggle Assistant Card
+function toggleAssistant() {
+  const card = document.getElementById('assistantCard');
+  card.classList.toggle('active');
+}
+
+// Scroll to section from assistant
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    toggleAssistant();
+  }
+}
+
+// Show social links
+function showSocial() {
+  const social = document.getElementById('assistantSocial');
+  const buttons = document.querySelector('.assistant-buttons');
+  
+  if (social.style.display === 'none') {
+    social.style.display = 'block';
+    buttons.style.display = 'none';
+  } else {
+    social.style.display = 'none';
+    buttons.style.display = 'grid';
+  }
+}
   </script>
 </body>
 
 </html>
+
 
 
 
