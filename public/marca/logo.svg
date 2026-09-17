@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Placeholder del isotipo JJ. Reemplazar por el logo real (logo.png) -->
+  <rect width="512" height="512" rx="110" fill="#000"/>
+  <g fill="#fff">
+    <path d="M168 140h100v150c0 52-30 86-84 86-22 0-40-5-54-14l14-46c10 6 22 9 34 9 18 0 26-10 26-30V196h-36z"/>
+    <path d="M300 140h100v150c0 52-30 86-84 86-22 0-40-5-54-14l14-46c10 6 22 9 34 9 18 0 26-10 26-30V196h-36z"/>
+  </g>
+  <circle cx="392" cy="372" r="10" fill="none" stroke="#fff" stroke-width="3"/>
+  <text x="392" y="377" font-family="Arial" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">R</text>
+</svg>
