@@ -1,0 +1,32 @@
+# JJSoluciones — sitio estático (Next.js export) en cPanel/Apache
+
+# HTTPS siempre y sin "www" (Cloudflare ya sirve HTTPS; esto cubre el acceso directo)
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^ https://jsoluciones.com.ar%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.jsoluciones\.com\.ar$ [NC]
+RewriteRule ^ https://jsoluciones.com.ar%{REQUEST_URI} [L,R=301]
+
+# Página 404 propia
+ErrorDocument 404 /404.html
+
+# Cache: los assets de Next tienen hash en el nombre, se pueden cachear mucho;
+# el HTML poco, para que los cambios se vean enseguida
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+# Compresión
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# No listar carpetas (lo que se veía como "Index of /")
+Options -Indexes

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cpanel": "cross-env NEXT_PUBLIC_SITE_URL=https://jsoluciones.com.ar next build",
     "build:pages": "cross-env NEXT_PUBLIC_BASE_PATH=/JJSoluciones.web next build",
     "lint": "next lint",
     "fotos": "node scripts/comprimir-fotos.js"
