@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Bell, Smartphone, Download, ExternalLink, Radio, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BorderTrail } from "@/components/ui/border-trail";
 import { MINUTO_FUTBOL } from "@/lib/contenido";
+import { guardarConsentimiento, useConsentimiento } from "@/lib/consentimiento";
 
 const PUNTOS = [
   { icono: Radio, texto: "Resultados y minuto a minuto en vivo" },
@@ -15,6 +17,7 @@ const PUNTOS = [
 
 // El proyecto destacado: el sitio + la app de la Liga Deportiva de General Arenales
 export default function MinutoFutbol() {
+  const consentimiento = useConsentimiento();
   return (
     <section id="minuto-futbol" className="py-24 scroll-mt-16 bg-[#070707] border-y border-border">
       <div className="container">
@@ -69,17 +72,43 @@ export default function MinutoFutbol() {
             </div>
           </div>
 
-          {/* Mockup de celular con el sitio adentro */}
+          {/* Mockup de celular con el sitio adentro. El marco embebido es
+              contenido de otro sitio: solo se carga si se aceptaron terceros. */}
           <div className="flex justify-center">
             <div className="relative w-[260px] h-[520px] rounded-[2.5rem] border-[6px] border-neutral-800 bg-black shadow-2xl overflow-hidden">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 rounded-full bg-neutral-800" aria-hidden="true" />
-              <iframe
-                src={MINUTO_FUTBOL.sitio}
-                title="Vista previa de Minuto Fútbol"
-                className="w-full h-full pt-6 bg-black"
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"
-              />
+              {consentimiento?.terceros ? (
+                <iframe
+                  src={MINUTO_FUTBOL.sitio}
+                  title="Vista previa de Minuto Fútbol"
+                  className="w-full h-full pt-6 bg-black"
+                  loading="lazy"
+                  sandbox="allow-scripts allow-same-origin"
+                />
+              ) : (
+                <div className="w-full h-full pt-6 flex flex-col items-center justify-center text-center px-6 gap-3">
+                  <Smartphone size={40} className="text-[#d4ff3f]" aria-hidden="true" />
+                  <p className="text-sm text-muted-foreground">
+                    La vista previa carga contenido de minutofutbol.jsoluciones.com.ar.
+                  </p>
+                  {consentimiento !== undefined && (
+                    <button
+                      type="button"
+                      onClick={() => guardarConsentimiento(true)}
+                      className="inline-flex items-center min-h-[40px] px-4 rounded-full bg-[#d4ff3f] text-black text-xs font-semibold hover:bg-[#c4ef2f]"
+                    >
+                      Mostrar vista previa
+                    </button>
+                  )}
+                  <p className="text-[11px] text-muted-foreground">
+                    Al mostrarla aceptás el contenido de terceros (ver{" "}
+                    <Link href="/legal/cookies/" className="underline">
+                      cookies
+                    </Link>
+                    ).
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

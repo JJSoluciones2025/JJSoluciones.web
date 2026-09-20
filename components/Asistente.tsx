@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, ArrowDown, MessageCircle, X } from "lucide-react";
 import { LINK_WHATSAPP } from "@/lib/contenido";
+import { useConsentimiento } from "@/lib/consentimiento";
 
 // Guía que acompaña al visitante: una burbuja con el "robot" que va cambiando
 // el mensaje según la sección visible y ofrece bajar a la siguiente o hablar
@@ -13,7 +14,7 @@ const PASOS: { id: string; mensaje: string; siguiente?: string; etiqueta?: strin
   { id: "servicios", mensaje: "Sistemas, sitios web y reparaciones. Mirá lo último que lanzamos:", siguiente: "#minuto-futbol", etiqueta: "Ver Minuto Fútbol" },
   { id: "minuto-futbol", mensaje: "Minuto Fútbol: la app de la liga local. ¿Querés saber cuánto sale un sitio así?", siguiente: "#precios", etiqueta: "Ver precios" },
   { id: "precios", mensaje: "Dos planes, pago único. Si necesitás algo a medida, lo presupuestamos.", siguiente: "#nosotros", etiqueta: "Conocernos" },
-  { id: "nosotros", mensaje: "Somos tres y trabajamos cara a cara. ¿Hablamos?", siguiente: "#contacto", etiqueta: "Ir a contacto" },
+  { id: "nosotros", mensaje: "Somos dos y trabajamos cara a cara. ¿Hablamos?", siguiente: "#contacto", etiqueta: "Ir a contacto" },
   { id: "contacto", mensaje: "Escribinos por WhatsApp y te respondemos a la brevedad." },
 ];
 
@@ -21,6 +22,7 @@ export default function Asistente() {
   const [activo, setActivo] = useState("inicio");
   const [cerrado, setCerrado] = useState(false);
   const [abierto, setAbierto] = useState(true);
+  const consentimiento = useConsentimiento();
 
   // Detecta qué sección está en pantalla
   useEffect(() => {
@@ -41,7 +43,8 @@ export default function Asistente() {
     if (!cerrado) setAbierto(true);
   }, [activo, cerrado]);
 
-  if (cerrado) return null;
+  // Mientras el aviso de cookies está abierto, el asistente se hace a un lado
+  if (cerrado || consentimiento === null || consentimiento === undefined) return null;
 
   const paso = PASOS.find((p) => p.id === activo) ?? PASOS[0];
 

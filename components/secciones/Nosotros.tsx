@@ -11,8 +11,8 @@ export default function Nosotros() {
       <div className="container space-y-12">
         <Encabezado
           etiqueta="Nosotros"
-          titulo="Tres personas, un solo equipo"
-          texto="Somos un equipo de tres profesionales de tecnología. Trabajamos con particulares y comercios de la zona, cara a cara: nos conocés, sabés a quién llamar."
+          titulo="Dos personas, un solo equipo"
+          texto="Somos dos profesionales de tecnología. Trabajamos con particulares y comercios de la zona, cara a cara: nos conocés, sabés a quién llamar."
         />
 
         <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">

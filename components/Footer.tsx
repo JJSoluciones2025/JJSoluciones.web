@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MessageCircle, LogIn } from "lucide-react";
 import Logo from "@/components/Logo";
 import IconoInstagram from "@/components/IconoInstagram";
+import BotonConfigurarCookies from "@/components/BotonConfigurarCookies";
 import { EMPRESA, LINK_WHATSAPP, MINUTO_FUTBOL } from "@/lib/contenido";
 
 const columnas = [
@@ -23,12 +24,20 @@ const columnas = [
       { label: "Minuto Fútbol", href: MINUTO_FUTBOL.sitio, externo: true },
     ],
   },
+  {
+    titulo: "Legal",
+    links: [
+      { label: "Términos y Condiciones", href: "/legal/terminos/" },
+      { label: "Política de Privacidad", href: "/legal/privacidad/" },
+      { label: "Política de Cookies", href: "/legal/cookies/" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-[#050505]">
-      <div className="container py-12 grid gap-10 md:grid-cols-4">
+      <div className="container py-12 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2 space-y-4">
           <Logo />
           <p className="text-sm text-muted-foreground max-w-sm">{EMPRESA.eslogan}. Para particulares y empresas.</p>
@@ -78,10 +87,13 @@ export default function Footer() {
       <div className="border-t border-border">
         <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} JJSoluciones. Todos los derechos reservados.</p>
-          <Link href="/clientes/" className="inline-flex items-center gap-1.5 min-h-[44px] hover:text-foreground">
-            <LogIn size={14} aria-hidden="true" />
-            Acceso clientes
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <BotonConfigurarCookies />
+            <Link href="/clientes/" className="inline-flex items-center gap-1.5 min-h-[44px] px-3 hover:text-foreground">
+              <LogIn size={14} aria-hidden="true" />
+              Acceso clientes
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
