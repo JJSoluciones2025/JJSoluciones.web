@@ -180,8 +180,17 @@ async function escudoBase64(url) {
   <circle cx="24" cy="${200 + tabla.length * 56 + 26}" r="4" fill="${LIMA}"/><text x="36" y="${200 + tabla.length * 56 + 30}" font-family="${F}" font-size="11" fill="${GRIS}">Zona de clasificación a semifinales</text>
   ${pie}</svg>`;
 
-  fs.writeFileSync(path.join(dir, "pantalla-home.svg"), home);
-  fs.writeFileSync(path.join(dir, "pantalla-partido.svg"), partido);
-  fs.writeFileSync(path.join(dir, "pantalla-tabla.svg"), tablaSvg);
-  console.log("pantallas listas con datos reales en", dir);
+  // Versión en el nombre: los SVG se cachean 7 días (.htaccess), así que si
+  // se llamaran igual, Cloudflare y los navegadores seguirían mostrando los
+  // viejos. Se borra la versión anterior y se actualiza lib/pantallas-app.ts.
+  const version = Date.now().toString(36);
+  for (const f of fs.readdirSync(dir)) if (/^pantalla-.*\.svg$/.test(f)) fs.unlinkSync(path.join(dir, f));
+  fs.writeFileSync(path.join(dir, `pantalla-home-${version}.svg`), home);
+  fs.writeFileSync(path.join(dir, `pantalla-partido-${version}.svg`), partido);
+  fs.writeFileSync(path.join(dir, `pantalla-tabla-${version}.svg`), tablaSvg);
+  fs.writeFileSync(
+    path.join(__dirname, "..", "lib", "pantallas-app.ts"),
+    `// Generado por scripts/generar-pantallas-app.js — no editar a mano\nexport const VERSION_PANTALLAS = "${version}";\n`
+  );
+  console.log(`pantallas listas (versión ${version}) en`, dir);
 })();

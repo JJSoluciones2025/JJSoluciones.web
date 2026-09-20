@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { VERSION_PANTALLAS } from "@/lib/pantallas-app";
 
+// Los nombres llevan la versión para que un cambio de pantallas no quede
+// atrapado en la caché (ver scripts/generar-pantallas-app.js)
 const PANTALLAS = [
-  { src: "/app/pantalla-home.svg", alt: "Pantalla de inicio de Minuto Fútbol con un partido en vivo" },
-  { src: "/app/pantalla-partido.svg", alt: "Minuto a minuto de un partido en Minuto Fútbol" },
-  { src: "/app/pantalla-tabla.svg", alt: "Tabla de posiciones en Minuto Fútbol" },
+  { src: `/app/pantalla-home-${VERSION_PANTALLAS}.svg`, alt: "Pantalla de inicio de Minuto Fútbol con un partido en vivo" },
+  { src: `/app/pantalla-partido-${VERSION_PANTALLAS}.svg`, alt: "Minuto a minuto de un partido en Minuto Fútbol" },
+  { src: `/app/pantalla-tabla-${VERSION_PANTALLAS}.svg`, alt: "Tabla de posiciones en Minuto Fútbol" },
 ];
 
 // Celular Android (cámara frontal "agujero", barra de gestos, módulo de
