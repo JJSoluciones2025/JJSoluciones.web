@@ -11,6 +11,12 @@ RewriteRule ^ https://jsoluciones.com.ar%{REQUEST_URI} [L,R=301]
 # Página 404 propia
 ErrorDocument 404 /404.html
 
+# El APK de Minuto Fútbol (public_html/descargas/) se descarga como archivo
+AddType application/vnd.android.package-archive .apk
+<FilesMatch "\.apk$">
+  Header set Content-Disposition "attachment"
+</FilesMatch>
+
 # Cache: los assets de Next tienen hash en el nombre, se pueden cachear mucho;
 # el HTML poco, para que los cambios se vean enseguida
 <IfModule mod_expires.c>

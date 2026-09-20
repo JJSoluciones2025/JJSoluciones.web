@@ -52,10 +52,10 @@ export default function MinutoFutbol() {
             <div className="flex flex-wrap gap-3 pt-2">
               {MINUTO_FUTBOL.apkDisponible ? (
                 <Button asChild size="lg" className="bg-[#d4ff3f] text-black hover:bg-[#c4ef2f]">
-                  <a href={MINUTO_FUTBOL.apk} download>
+                  <Link href="/app/">
                     <Download aria-hidden="true" />
                     Descargar la app (Android)
-                  </a>
+                  </Link>
                 </Button>
               ) : (
                 <Button size="lg" disabled className="bg-[#d4ff3f] text-black">

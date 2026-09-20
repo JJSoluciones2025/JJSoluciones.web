@@ -34,7 +34,7 @@ export const SERVICIOS: Servicio[] = [
     descripcion:
       "Desarrollamos sistemas a medida: control de stock, ventas, clientes y reportes. Lo que tu negocio necesita, sin pagar por lo que no usa.",
     icono: "Boxes",
-    imagen: "/fotos/img2.jpg",
+    imagen: "/servicios/sistemas.svg",
   },
   {
     id: "web",
@@ -42,7 +42,7 @@ export const SERVICIOS: Servicio[] = [
     descripcion:
       "Sitios profesionales, landing pages y tiendas. Rápidos, adaptados al celular y listos para aparecer en Google.",
     icono: "Globe",
-    imagen: "/fotos/img5.jpg",
+    imagen: "/servicios/web.svg",
   },
   {
     id: "pc",
@@ -74,7 +74,7 @@ export const SERVICIOS: Servicio[] = [
     descripcion:
       "Soporte técnico online para resolver problemas sin salir de tu casa. Rápido, seguro y sin vueltas.",
     icono: "Headset",
-    imagen: "/fotos/img8.jpg",
+    imagen: "/servicios/remota.svg",
   },
 ];
 
@@ -128,10 +128,21 @@ export const GALERIA = ["/fotos/img1.jpg", "/fotos/img2.jpg", "/fotos/img3.jpg",
 // Minuto Fútbol: el proyecto destacado
 export const MINUTO_FUTBOL = {
   sitio: "https://minutofutbol.jsoluciones.com.ar",
-  // Cuando el APK esté publicado, poner acá el link directo
-  apk: "https://minutofutbol.jsoluciones.com.ar/minuto-futbol.apk",
-  apkDisponible: false,
+  // Link que cuenta la descarga en el dashboard y redirige al archivo
+  // (el APK vive en cPanel: public_html/descargas/minuto-futbol.apk)
+  apk: "https://api-minutofutbol.jsoluciones.com.ar/api/metrics/apk",
+  apkDisponible: true,
+  version: "1.0",
+  tamano: "3,3 MB",
+  androidMinimo: "Android 7 o superior",
 };
+
+// Tecnologías y habilidades que flotan de fondo en /app. Editar a gusto.
+export const TECNOLOGIAS = [
+  "Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Capacitor",
+  "Android", "Firebase", "Cloudflare", "cPanel", "REST API", "JWT", "PWA", "Push", "Git", "Linux",
+  "SEO", "UX/UI", "Sistemas de gestión", "Control de stock", "Reparación de PC", "Soporte remoto",
+];
 
 // Portal de clientes: cada email lleva a la URL del sistema de ese cliente.
 // Los sistemas todavía son locales; cuando estén online se pone la URL real.

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#0a0a0a"/>
+  
+  <rect width="390" height="64" fill="#171717"/>
+  <rect y="64" width="390" height="1" fill="#2a2a2a"/>
+  <text x="20" y="41" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900" fill="#d4ff3f" letter-spacing="0.5">MINUTO FÚTBOL</text>
+  <circle cx="306" cy="33" r="8" fill="none" stroke="#f5f5f5" stroke-width="2"/>
+  <path d="M346 24c-5 0-9 4-9 9v6l-3 4v2h24v-2l-3-4v-6c0-5-4-9-9-9z" fill="#f5f5f5"/>
+  <rect x="366" y="26" width="16" height="2" rx="1" fill="#d4ff3f"/><rect x="366" y="32" width="16" height="2" rx="1" fill="#d4ff3f"/><rect x="366" y="38" width="16" height="2" rx="1" fill="#d4ff3f"/>
+
+  
+  <rect x="16" y="80" width="179" height="58" rx="4" fill="#764ba2"/>
+  <text x="28" y="106" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">HELADERÍA POLAR</text>
+  <text x="28" y="124" font-family="Inter, Arial, sans-serif" font-size="9" fill="#ffe5ec">Sabores artesanales</text>
+  <rect x="195" y="80" width="179" height="58" rx="4" fill="#1f4e79"/>
+  <text x="207" y="106" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">FERRETERÍA</text>
+  <text x="207" y="124" font-family="Inter, Arial, sans-serif" font-size="9" fill="#cfe3f7">Todo para tu obra</text>
+  <text x="16" y="170" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#f7941d" letter-spacing="1">TORNEO APERTURA</text>
+  <text x="16" y="206" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="900" fill="#f5f5f5">TABLA DE POSICIONES</text>
+  <rect x="16" y="228" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="248" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#9ca3af">#</text>
+  <text x="88" y="248" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#9ca3af">CLUB</text>
+  <text x="294" y="248" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#9ca3af" text-anchor="middle">PJ</text>
+  <text x="350" y="248" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#9ca3af" text-anchor="middle">PTS</text>
+  <rect x="16" y="260" width="358" height="56" fill="rgba(212,255,63,0.06)"/>
+  <rect x="16" y="315" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="294" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">1</text>
+  <circle cx="66" cy="288" r="13" fill="#2f6b4a"/><text x="66" y="293" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">S</text><text x="88" y="293" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Social</text>
+  <text x="294" y="293" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="294" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">9</text>
+  <rect x="16" y="316" width="358" height="56" fill="rgba(212,255,63,0.06)"/>
+  <rect x="16" y="371" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="350" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">2</text>
+  <circle cx="66" cy="344" r="13" fill="#b23a48"/><text x="66" y="349" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">A</text><text x="88" y="349" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Arenales F.C.</text>
+  <text x="294" y="349" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="350" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">7</text>
+  <rect x="16" y="372" width="358" height="56" fill="rgba(212,255,63,0.06)"/>
+  <rect x="16" y="427" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="406" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">3</text>
+  <circle cx="66" cy="400" r="13" fill="#b23a48"/><text x="66" y="405" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">A</text><text x="88" y="405" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Agustina</text>
+  <text x="294" y="405" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="406" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">6</text>
+  <rect x="16" y="428" width="358" height="56" fill="rgba(212,255,63,0.06)"/>
+  <rect x="16" y="483" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="462" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">4</text>
+  <circle cx="66" cy="456" r="13" fill="#0369a1"/><text x="66" y="461" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">S</text><text x="88" y="461" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Singlar</text>
+  <text x="294" y="461" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="462" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">4</text>
+  <rect x="16" y="484" width="358" height="56" fill="none"/>
+  <rect x="16" y="539" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="518" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">5</text>
+  <circle cx="66" cy="512" r="13" fill="#b45309"/><text x="66" y="517" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text><text x="88" y="517" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">12 de Octubre</text>
+  <text x="294" y="517" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="518" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">4</text>
+  <rect x="16" y="540" width="358" height="56" fill="none"/>
+  <rect x="16" y="595" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="574" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">6</text>
+  <circle cx="66" cy="568" r="13" fill="#7c3aed"/><text x="66" y="573" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">B</text><text x="88" y="573" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Belgrano</text>
+  <text x="294" y="573" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="574" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">3</text>
+  <rect x="16" y="596" width="358" height="56" fill="none"/>
+  <rect x="16" y="651" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="630" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">7</text>
+  <circle cx="66" cy="624" r="13" fill="#dc2626"/><text x="66" y="629" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">C</text><text x="88" y="629" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Colonial</text>
+  <text x="294" y="629" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="630" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">1</text>
+  <rect x="16" y="652" width="358" height="56" fill="none"/>
+  <rect x="16" y="707" width="358" height="1" fill="#2a2a2a"/>
+  <text x="34" y="686" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af">8</text>
+  <circle cx="66" cy="680" r="13" fill="#16a34a"/><text x="66" y="685" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">H</text><text x="88" y="685" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#f5f5f5">Huracán</text>
+  <text x="294" y="685" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">3</text>
+  <text x="350" y="686" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900" fill="#d4ff3f" text-anchor="middle">0</text>
+  <circle cx="24" cy="726" r="4" fill="#d4ff3f"/><text x="36" y="730" font-family="Inter, Arial, sans-serif" font-size="11" fill="#9ca3af">Zona de clasificación a semifinales</text>
+  <rect x="0" y="784" width="390" height="60" fill="#171717"/><rect y="784" width="390" height="1" fill="#2a2a2a"/>
+  <text x="195" y="818" font-family="Inter, Arial, sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">Desarrollado por JJSoluciones</text>
+</svg>

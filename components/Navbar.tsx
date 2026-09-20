@@ -7,12 +7,14 @@ import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+// Los # llevan a secciones de la Home; desde otra página (/app, /legal) se
+// anteponen con "/" para que igual funcionen.
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#minuto-futbol", label: "Minuto Fútbol" },
-  { href: "#precios", label: "Precios" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/app/", label: "App" },
+  { href: "/#precios", label: "Precios" },
+  { href: "/#nosotros", label: "Nosotros" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export default function Navbar() {
