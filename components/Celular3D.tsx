@@ -10,9 +10,9 @@ const PANTALLAS = [
   { src: "/app/pantalla-tabla.svg", alt: "Tabla de posiciones en Minuto Fútbol" },
 ];
 
-// Celular que gira en 3D (CSS puro, sin video) mostrando pantallas de la app
-// que van cambiando. En pantallas chicas es más chico; con "reducir
-// movimiento" queda quieto de frente y solo cambia la pantalla.
+// Celular Android (cámara frontal "agujero", barra de gestos, módulo de
+// cámaras vertical atrás) que gira en 3D con CSS puro mostrando pantallas de
+// la app que van cambiando. Con "reducir movimiento" queda quieto de frente.
 export default function Celular3D({ className }: { className?: string }) {
   const [activa, setActiva] = useState(0);
 
