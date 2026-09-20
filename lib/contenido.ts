@@ -66,7 +66,7 @@ export const SERVICIOS: Servicio[] = [
     descripcion:
       "Servicio completo: limpieza + formateo + optimización + revisión general. Tu equipo como recién comprado.",
     icono: "Sparkles",
-    imagen: "/fotos/img7.jpg",
+    imagen: "/servicios/premium.svg",
   },
   {
     id: "remota",
