@@ -122,16 +122,38 @@ async function escudoBase64(url) {
   // ---- 2) Partido (el que está en vivo, o el último jugado) ---------------
   const p = enVivo ?? finalizados[0];
   const detalle = await json(`${API}/matches/${p.id}`);
-  const eventos = [...(detalle.events ?? [])].sort((a, b) => b.minute - a.minute).slice(0, 5);
+  // Sin comentarios libres (son texto del relator, no sirven para la imagen)
+  const eventos = [...(detalle.events ?? [])]
+    .filter((e) => e.type !== "COMENTARIO")
+    .sort((a, b) => b.minute - a.minute)
+    .slice(0, 5);
   const estadoP = p.status === "ENTRETIEMPO" ? "ENTRETIEMPO" : p.status === "EN_VIVO" ? `EN VIVO · ${p.minute ?? 0}'` : "FINALIZADO";
   const pelota = (x, yy) => `<circle cx="${x}" cy="${yy}" r="9" fill="${TXT}"/><polygon points="${x},${yy - 5} ${x + 4.5},${yy - 1.5} ${x + 3},${yy + 4} ${x - 3},${yy + 4} ${x - 4.5},${yy - 1.5}" fill="#111"/>`;
   const tarjeta = (x, yy, color) => `<rect x="${x - 5}" y="${yy - 8}" width="10" height="15" rx="1.5" fill="${color}"/>`;
   const iconoEvento = (e, x, yy) =>
     e.type === "GOL" ? pelota(x, yy) : e.type === "AMARILLA" ? tarjeta(x, yy, "#facc15") : e.type === "ROJA" ? tarjeta(x, yy, "#ef4444") : `<polygon points="${x - 6},${yy - 8} ${x - 6},${yy + 8} ${x + 8},${yy}" fill="${LIMA}"/>`;
+  // El relato se arma acá y no se toma de la base: los textos reales pueden
+  // ser de prueba o tener errores, y esto es una imagen de presentación.
+  const relato = (e) => {
+    const club = e.club?.name ?? "";
+    const jugador = e.player?.name ? e.player.name.split(" ").slice(-1)[0] : null;
+    switch (e.type) {
+      case "GOL": return jugador ? `¡Gol de ${jugador} para ${club}!` : `¡Gol de ${club}!`;
+      case "AMARILLA": return jugador ? `Amarilla para ${jugador}` : `Amarilla para ${club}`;
+      case "ROJA": return jugador ? `Roja: se va ${jugador}` : `Expulsado en ${club}`;
+      case "CAMBIO": return `Cambio en ${club}`;
+      case "INICIO": return "Arranca el partido";
+      case "ENTRETIEMPO": return "Final del primer tiempo";
+      case "REANUDACION": return "Empieza el segundo tiempo";
+      case "FINAL": return "Final del partido";
+      default: return e.text;
+    }
+  };
   let ye = 318;
   let bloqueEventos = "";
   for (const e of eventos) {
-    const texto = e.text.length > 34 ? e.text.slice(0, 33) + "…" : e.text;
+    const t = relato(e);
+    const texto = t.length > 34 ? t.slice(0, 33) + "…" : t;
     bloqueEventos += `
   <rect x="16" y="${ye}" width="${W - 32}" height="70" rx="10" fill="${SUP}" stroke="${BORDE}"/>
   <text x="34" y="${ye + 43}" font-family="${F}" font-size="18" font-weight="900" fill="${LIMA}">${e.minute}'</text>
@@ -144,8 +166,8 @@ async function escudoBase64(url) {
   <rect width="${W}" height="${H}" fill="${FONDO}"/>${header}
   <text x="16" y="92" font-family="${F}" font-size="11" font-weight="700" fill="${NAR}" letter-spacing="1">${esc((p.round ?? "").toUpperCase())}</text>
   <rect x="16" y="104" width="${W - 32}" height="150" rx="12" fill="${SUP}" stroke="${BORDE}"/>
-  ${p.status !== "FINALIZADO" ? `<circle cx="${W / 2 - 46}" cy="128" r="4" fill="${NAR}"/>` : ""}
-  <text x="${W / 2}" y="132" font-family="${F}" font-size="12" font-weight="700" fill="${p.status === "FINALIZADO" ? GRIS : NAR}" text-anchor="middle">${estadoP}</text>
+  ${p.status !== "FINALIZADO" ? `<circle cx="${W / 2 - 8 - estadoP.length * 3.6}" cy="128" r="4" fill="${NAR}"/>` : ""}
+  <text x="${W / 2 + 6}" y="132" font-family="${F}" font-size="12" font-weight="700" fill="${p.status === "FINALIZADO" ? GRIS : NAR}" text-anchor="middle">${estadoP}</text>
   ${escudo(p.local, 90, 176, 22)}<text x="90" y="226" font-family="${F}" font-size="15" font-weight="900" fill="${TXT}" text-anchor="middle">${esc(p.local.name.toUpperCase())}</text>
   <text x="${W / 2}" y="196" font-family="${F}" font-size="44" font-weight="900" fill="${TXT}" text-anchor="middle">${p.localScore} - ${p.visitorScore}</text>
   ${escudo(p.visitor, W - 90, 176, 22)}<text x="${W - 90}" y="226" font-family="${F}" font-size="15" font-weight="900" fill="${TXT}" text-anchor="middle">${esc(p.visitor.name.toUpperCase())}</text>
