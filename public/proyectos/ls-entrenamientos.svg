@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="LS Entrenamientos: gestión de alumnos, rutinas y cuotas"><defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15121f"/><stop offset="1" stop-color="#070709"/></linearGradient>
+  <linearGradient id="marca" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0369a1"/></linearGradient>
+  <radialGradient id="halo" cx="0.78" cy="0.18" r="0.72"><stop offset="0" stop-color="#38bdf8" stop-opacity="0.34"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="640" height="400" fill="url(#bg)"/>
+<rect width="640" height="400" fill="url(#halo)"/>
+<rect x="36" y="40" width="568" height="320" rx="14" fill="#111118" stroke="#2a2a34"/>
+<rect x="36" y="40" width="568" height="38" rx="14" fill="#17171f"/><rect x="36" y="64" width="568" height="14" fill="#17171f"/>
+<circle cx="58" cy="59" r="4.5" fill="#ef4444"/><circle cx="74" cy="59" r="4.5" fill="#f59e0b"/><circle cx="90" cy="59" r="4.5" fill="#22c55e"/>
+<text x="112" y="63" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#e5e5e5">LS Entrenamientos · Panel</text>
+<rect x="500" y="49" width="94" height="20" rx="10" fill="url(#marca)"/><text x="547" y="63" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">+ Nuevo alumno</text>
+<rect x="56" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="70" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">ALUMNOS ACTIVOS</text>
+  <text x="70" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#38bdf8">86</text><rect x="238" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="252" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">CUOTAS AL DÍA</text>
+  <text x="252" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#22c55e">74</text><rect x="420" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="434" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">VENCIDAS</text>
+  <text x="434" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#f87171">12</text>
+<!-- lista de alumnos -->
+<rect x="56" y="162" width="300" height="180" rx="9" fill="#17171f" stroke="#2a2a34"/>
+<text x="70" y="182" font-family="Inter, Arial, sans-serif" font-size="9" fill="#9ca3af">ALUMNOS</text>
+<circle cx="78" cy="210" r="11" fill="#2a2a34"/>
+  <circle cx="78" cy="206" r="4" fill="#6b7280"/><path d="M70 217 a8 8 0 0 1 16 0" fill="#6b7280"/>
+  <text x="98" y="207" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Martina R.</text>
+  <text x="98" y="219" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Fuerza · 4 días</text>
+  <rect x="266" y="199" width="72" height="18" rx="9" fill="#22c55e" opacity="0.18"/>
+  <text x="302" y="212" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">Al día</text><circle cx="78" cy="242" r="11" fill="#2a2a34"/>
+  <circle cx="78" cy="238" r="4" fill="#6b7280"/><path d="M70 249 a8 8 0 0 1 16 0" fill="#6b7280"/>
+  <text x="98" y="239" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Lucas P.</text>
+  <text x="98" y="251" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Hipertrofia · 5 días</text>
+  <rect x="266" y="231" width="72" height="18" rx="9" fill="#22c55e" opacity="0.18"/>
+  <text x="302" y="244" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">Al día</text><circle cx="78" cy="274" r="11" fill="#2a2a34"/>
+  <circle cx="78" cy="270" r="4" fill="#6b7280"/><path d="M70 281 a8 8 0 0 1 16 0" fill="#6b7280"/>
+  <text x="98" y="271" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Sofía M.</text>
+  <text x="98" y="283" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Funcional · 3 días</text>
+  <rect x="266" y="263" width="72" height="18" rx="9" fill="#f87171" opacity="0.18"/>
+  <text x="302" y="276" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#f87171" text-anchor="middle">Vencida</text><circle cx="78" cy="306" r="11" fill="#2a2a34"/>
+  <circle cx="78" cy="302" r="4" fill="#6b7280"/><path d="M70 313 a8 8 0 0 1 16 0" fill="#6b7280"/>
+  <text x="98" y="303" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Diego A.</text>
+  <text x="98" y="315" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Fuerza · 3 días</text>
+  <rect x="266" y="295" width="72" height="18" rx="9" fill="#22c55e" opacity="0.18"/>
+  <text x="302" y="308" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#22c55e" text-anchor="middle">Al día</text>
+<!-- rutina de la semana -->
+<rect x="370" y="162" width="214" height="180" rx="9" fill="#17171f" stroke="#2a2a34"/>
+<text x="384" y="182" font-family="Inter, Arial, sans-serif" font-size="9" fill="#9ca3af">RUTINA DE LA SEMANA</text>
+<rect x="384" y="192" width="22" height="22" rx="6" fill="url(#marca)"/>
+  <text x="395" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">L</text><rect x="412" y="192" width="22" height="22" rx="6" fill="#2a2a34"/>
+  <text x="423" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#6b7280" text-anchor="middle">M</text><rect x="440" y="192" width="22" height="22" rx="6" fill="url(#marca)"/>
+  <text x="451" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">M</text><rect x="468" y="192" width="22" height="22" rx="6" fill="#2a2a34"/>
+  <text x="479" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#6b7280" text-anchor="middle">J</text><rect x="496" y="192" width="22" height="22" rx="6" fill="url(#marca)"/>
+  <text x="507" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">V</text><rect x="524" y="192" width="22" height="22" rx="6" fill="url(#marca)"/>
+  <text x="535" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">S</text><rect x="552" y="192" width="22" height="22" rx="6" fill="#2a2a34"/>
+  <text x="563" y="207" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#6b7280" text-anchor="middle">D</text>
+<rect x="384" y="228" width="186" height="22" rx="6" fill="#111118"/>
+  <rect x="392" y="234" width="3" height="10" rx="1.5" fill="#38bdf8"/>
+  <text x="404" y="243" font-family="Inter, Arial, sans-serif" font-size="9" fill="#e5e5e5">Sentadilla</text>
+  <text x="562" y="243" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af" text-anchor="end">4 x 8</text><rect x="384" y="255" width="186" height="22" rx="6" fill="#111118"/>
+  <rect x="392" y="261" width="3" height="10" rx="1.5" fill="#38bdf8"/>
+  <text x="404" y="270" font-family="Inter, Arial, sans-serif" font-size="9" fill="#e5e5e5">Press banca</text>
+  <text x="562" y="270" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af" text-anchor="end">4 x 10</text><rect x="384" y="282" width="186" height="22" rx="6" fill="#111118"/>
+  <rect x="392" y="288" width="3" height="10" rx="1.5" fill="#38bdf8"/>
+  <text x="404" y="297" font-family="Inter, Arial, sans-serif" font-size="9" fill="#e5e5e5">Remo con barra</text>
+  <text x="562" y="297" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af" text-anchor="end">3 x 12</text><rect x="384" y="309" width="186" height="22" rx="6" fill="#111118"/>
+  <rect x="392" y="315" width="3" height="10" rx="1.5" fill="#38bdf8"/>
+  <text x="404" y="324" font-family="Inter, Arial, sans-serif" font-size="9" fill="#e5e5e5">Plancha</text>
+  <text x="562" y="324" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af" text-anchor="end">3 x 45s</text></svg>

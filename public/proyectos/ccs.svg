@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="CCS: sistema de gestión de clientes, trabajos y cobranzas"><defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15121f"/><stop offset="1" stop-color="#070709"/></linearGradient>
+  <linearGradient id="marca" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#b45309"/></linearGradient>
+  <radialGradient id="halo" cx="0.78" cy="0.18" r="0.72"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.34"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="640" height="400" fill="url(#bg)"/>
+<rect width="640" height="400" fill="url(#halo)"/>
+<rect x="36" y="40" width="568" height="320" rx="14" fill="#111118" stroke="#2a2a34"/>
+<rect x="36" y="40" width="568" height="38" rx="14" fill="#17171f"/><rect x="36" y="64" width="568" height="14" fill="#17171f"/>
+<circle cx="58" cy="59" r="4.5" fill="#ef4444"/><circle cx="74" cy="59" r="4.5" fill="#f59e0b"/><circle cx="90" cy="59" r="4.5" fill="#22c55e"/>
+<text x="112" y="63" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#e5e5e5">CCS · Sistema de gestión</text>
+<rect x="504" y="49" width="90" height="20" rx="10" fill="url(#marca)"/><text x="549" y="63" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">+ Nuevo trabajo</text>
+<rect x="56" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="70" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">TRABAJOS ABIERTOS</text>
+  <text x="70" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#f59e0b">18</text><rect x="238" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="252" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">ENTREGADOS · MES</text>
+  <text x="252" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#e5e5e5">63</text><rect x="420" y="94" width="168" height="54" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <text x="434" y="114" font-family="Inter, Arial, sans-serif" font-size="8" fill="#9ca3af">A COBRAR</text>
+  <text x="434" y="138" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#22c55e">$ 742.500</text>
+<!-- tablero de estados -->
+<rect x="56" y="162" width="168" height="180" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <circle cx="72" cy="181" r="4" fill="#6b7280"/>
+  <text x="84" y="185" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af">PENDIENTE</text>
+  <rect x="68" y="198" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="68" y="198" width="4" height="52" rx="2" fill="#6b7280"/>
+    <text x="82" y="216" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1042</text>
+    <text x="82" y="230" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 1</text>
+    <rect x="82" y="236" width="60" height="5" rx="2.5" fill="#2a2a34"/><rect x="68" y="260" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="68" y="260" width="4" height="52" rx="2" fill="#6b7280"/>
+    <text x="82" y="278" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1043</text>
+    <text x="82" y="292" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 2</text>
+    <rect x="82" y="298" width="80" height="5" rx="2.5" fill="#2a2a34"/><rect x="238" y="162" width="168" height="180" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <circle cx="254" cy="181" r="4" fill="#f59e0b"/>
+  <text x="266" y="185" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af">EN PROCESO</text>
+  <rect x="250" y="198" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="250" y="198" width="4" height="52" rx="2" fill="#f59e0b"/>
+    <text x="264" y="216" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1038</text>
+    <text x="264" y="230" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 3</text>
+    <rect x="264" y="236" width="60" height="5" rx="2.5" fill="#2a2a34"/><rect x="250" y="260" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="250" y="260" width="4" height="52" rx="2" fill="#f59e0b"/>
+    <text x="264" y="278" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1040</text>
+    <text x="264" y="292" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 4</text>
+    <rect x="264" y="298" width="80" height="5" rx="2.5" fill="#2a2a34"/><rect x="420" y="162" width="168" height="180" rx="9" fill="#17171f" stroke="#2a2a34"/>
+  <circle cx="436" cy="181" r="4" fill="#22c55e"/>
+  <text x="448" y="185" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#9ca3af">LISTO</text>
+  <rect x="432" y="198" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="432" y="198" width="4" height="52" rx="2" fill="#22c55e"/>
+    <text x="446" y="216" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1031</text>
+    <text x="446" y="230" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 5</text>
+    <rect x="446" y="236" width="60" height="5" rx="2.5" fill="#2a2a34"/><rect x="432" y="260" width="144" height="52" rx="8" fill="#111118" stroke="#2a2a34"/>
+    <rect x="432" y="260" width="4" height="52" rx="2" fill="#22c55e"/>
+    <text x="446" y="278" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" fill="#e5e5e5">Pedido #1035</text>
+    <text x="446" y="292" font-family="Inter, Arial, sans-serif" font-size="9" fill="#6b7280">Cliente 6</text>
+    <rect x="446" y="298" width="80" height="5" rx="2.5" fill="#2a2a34"/></svg>

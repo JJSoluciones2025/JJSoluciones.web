@@ -149,3 +149,142 @@ export const TECNOLOGIAS = [
 export const CLIENTES: { email: string; nombre: string; url: string }[] = [
   { email: "trapitos@gmail.com", nombre: "Trapitos", url: "https://trapitos.jsoluciones.com.ar" },
 ];
+
+// --- Vitrina interna --------------------------------------------------------
+// Con este email (en /clientes) no se entra a ningún sistema: se abre la
+// vitrina con todos los trabajos, para mostrárselos a un cliente uno por uno.
+export const ACCESO_INTERNO = "jjsoluciones@admin.com";
+
+export type Proyecto = {
+  id: string;
+  nombre: string;
+  tipo: string;
+  resumen: string;
+  descripcion: string;
+  // Miniatura: por ahora mockups generados (scripts/generar-proyectos.js).
+  // Cuando haya capturas reales, se reemplaza el archivo con el mismo nombre.
+  imagen: string;
+  // Color del borde/acento de la tarjeta
+  color: string;
+  puntos: string[];
+  tecnologias: string[];
+  // Si está online, el botón abre el sistema. Si no, se muestra el estado.
+  url?: string;
+  urlTexto?: string;
+  extraUrl?: string;
+  extraTexto?: string;
+  estado?: string;
+};
+
+export const PROYECTOS: Proyecto[] = [
+  {
+    id: "minuto-futbol",
+    nombre: "Minuto Fútbol",
+    tipo: "Sitio + app Android",
+    resumen: "El minuto a minuto de la liga, en vivo y en el celular.",
+    descripcion:
+      "Plataforma de la Liga Deportiva de General Arenales: partidos en vivo con el relato minuto a minuto, tabla de posiciones, goleadores, tarjetas, plantel de cada club, alineaciones y noticias. Los delegados cargan lo suyo desde el celular y el hincha lo ve al instante.",
+    imagen: "/proyectos/minuto-futbol.svg",
+    color: "#22c55e",
+    puntos: [
+      "Partidos en vivo con reloj de minuto y eventos (gol, tarjetas, cambios)",
+      "Tabla de posiciones y goleadores que se actualizan solos",
+      "Panel para delegados: cada club carga su equipo y sus partidos",
+      "App Android instalable, además del sitio web",
+      "Panel interno con visitas, descargas y actividad",
+    ],
+    tecnologias: ["Next.js", "Node.js", "PostgreSQL", "Android"],
+    url: MINUTO_FUTBOL.sitio,
+    urlTexto: "Ver el sitio en vivo",
+    extraUrl: MINUTO_FUTBOL.apk,
+    extraTexto: "Descargar la app",
+  },
+  {
+    id: "trapitos",
+    nombre: "Trapitos",
+    tipo: "Sistema de gestión (ERP)",
+    resumen: "Ventas, stock y clientes de un local de ropa, en una pantalla.",
+    descripcion:
+      "Sistema de gestión para un local de indumentaria: carga de ventas, control de stock por talle y color, clientes, cuenta corriente y reportes del día, de la semana y del mes. Pensado para que lo use cualquiera, sin capacitación.",
+    imagen: "/proyectos/trapitos.svg",
+    color: "#b794f4",
+    puntos: [
+      "Ventas en segundos, con búsqueda rápida de productos",
+      "Stock por talle y color, con aviso de stock bajo",
+      "Clientes y cuenta corriente",
+      "Reportes de ventas por día, semana y mes",
+    ],
+    tecnologias: ["Next.js", "Node.js", "PostgreSQL"],
+    estado: "Instalado en el local del cliente",
+  },
+  {
+    id: "ls-entrenamientos",
+    nombre: "LS Entrenamientos",
+    tipo: "Sistema de gestión",
+    resumen: "Alumnos, rutinas y cuotas de un entrenador personal.",
+    descripcion:
+      "Sistema para gestionar alumnos: ficha de cada uno, rutina armada por semana, seguimiento de la asistencia y control de las cuotas (quién está al día y quién debe). El alumno recibe su rutina y el profe deja de anotar en papel.",
+    imagen: "/proyectos/ls-entrenamientos.svg",
+    color: "#38bdf8",
+    puntos: [
+      "Ficha del alumno con objetivo, plan y progreso",
+      "Rutinas por día de la semana, con series y repeticiones",
+      "Control de cuotas: al día, por vencer y vencidas",
+      "Todo desde el celular, adentro del gimnasio",
+    ],
+    tecnologias: ["Next.js", "Node.js", "PostgreSQL"],
+    estado: "Instalado en el equipo del cliente",
+  },
+  {
+    id: "ccs",
+    nombre: "CCS",
+    tipo: "Sistema de gestión",
+    resumen: "Trabajos, clientes y cobranzas organizados por estado.",
+    descripcion:
+      "Sistema de administración de trabajos: cada pedido pasa por pendiente, en proceso y listo, con su cliente, su detalle y lo que hay que cobrar. De un vistazo se ve todo lo que está abierto y lo que falta facturar.",
+    imagen: "/proyectos/ccs.svg",
+    color: "#f59e0b",
+    puntos: [
+      "Tablero por estados: pendiente, en proceso y listo",
+      "Ficha de cliente con su historial de trabajos",
+      "Control de lo entregado y lo que falta cobrar",
+      "Resumen del mes siempre a la vista",
+    ],
+    tecnologias: ["Next.js", "Node.js", "PostgreSQL"],
+    estado: "Instalado en el equipo del cliente",
+  },
+  {
+    id: "prode",
+    nombre: "Prode Fútbol",
+    tipo: "Juego de pronósticos",
+    resumen: "El prode de la liga, atado a los partidos de Minuto Fútbol.",
+    descripcion:
+      "Juego de pronósticos que se alimenta del fixture de Minuto Fútbol: cada participante marca local, empate o visitante antes de que arranque la fecha, y el ranking se actualiza solo con los resultados reales. Suma gente al sitio y da otro espacio para los sponsors.",
+    imagen: "/proyectos/prode.svg",
+    color: "#f472b6",
+    puntos: [
+      "Pronósticos de la fecha con cierre automático antes del primer partido",
+      "Puntaje y ranking calculados con los resultados reales",
+      "Usa el mismo fixture y los mismos clubes de Minuto Fútbol",
+    ],
+    tecnologias: ["Next.js", "Node.js", "PostgreSQL"],
+    estado: "En desarrollo",
+  },
+  {
+    id: "allyerbas",
+    nombre: "AllYerbas",
+    tipo: "Sitio web",
+    resumen: "Catálogo online de yerbas, listo para vender por WhatsApp.",
+    descripcion:
+      "Sitio de catálogo con los productos, precios y fotos, adaptado al celular y preparado para Google. El pedido se cierra por WhatsApp, sin comisiones de terceros.",
+    imagen: "/proyectos/allyerbas.svg",
+    color: "#4ade80",
+    puntos: [
+      "Catálogo con fotos, precios y buscador",
+      "Pedidos directos por WhatsApp",
+      "Rápido en el celular y optimizado para Google",
+    ],
+    tecnologias: ["Next.js", "Tailwind CSS"],
+    estado: "En desarrollo",
+  },
+];

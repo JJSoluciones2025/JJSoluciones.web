@@ -6,19 +6,32 @@ import { LogIn, Mail, ArrowRight, MessageCircle } from "lucide-react";
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { Spotlight } from "@/components/ui/spotlight";
-import { CLIENTES, LINK_WHATSAPP } from "@/lib/contenido";
+import VitrinaProyectos from "@/components/VitrinaProyectos";
+import { ACCESO_INTERNO, CLIENTES, LINK_WHATSAPP } from "@/lib/contenido";
 
 // Portal: el cliente pone el email con el que lo dimos de alta y lo mandamos
 // a la URL de SU sistema, donde se loguea con su usuario y contraseña. Acá no
 // se pide contraseña ni se guarda nada.
+//
+// Excepción: con nuestro email interno (ACCESO_INTERNO) no se sale del sitio,
+// se abre la vitrina con todos los trabajos, para mostrárselos a un cliente.
 export default function PortalClientes() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [yendo, setYendo] = useState<string | null>(null);
+  const [vitrina, setVitrina] = useState(false);
 
   function entrar(e: React.FormEvent) {
     e.preventDefault();
-    const cliente = CLIENTES.find((c) => c.email.toLowerCase() === email.trim().toLowerCase());
+    const ingresado = email.trim().toLowerCase();
+
+    if (ingresado === ACCESO_INTERNO.toLowerCase()) {
+      setError("");
+      setVitrina(true);
+      return;
+    }
+
+    const cliente = CLIENTES.find((c) => c.email.toLowerCase() === ingresado);
     if (!cliente) {
       setError("No encontramos ese email. Revisá que sea el que te dimos al entregarte el sistema, o escribinos.");
       return;
@@ -26,6 +39,17 @@ export default function PortalClientes() {
     setError("");
     setYendo(cliente.nombre);
     window.location.href = cliente.url;
+  }
+
+  if (vitrina) {
+    return (
+      <VitrinaProyectos
+        onSalir={() => {
+          setVitrina(false);
+          setEmail("");
+        }}
+      />
+    );
   }
 
   return (
