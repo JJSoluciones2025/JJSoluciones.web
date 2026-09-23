@@ -218,7 +218,9 @@ const archivos = {
   "trapitos.svg": trapitos,
   "ls-entrenamientos.svg": lsentrenamientos,
   "ccs.svg": ccs,
-  "prode.svg": prode,
+  // Prode ya tiene captura real (public/proyectos/prode.jpg); el mockup queda
+  // por si hace falta regenerarlo: descomentar la línea de abajo.
+  // "prode.svg": prode,
   "allyerbas.svg": allyerbas,
 };
 for (const [nombre, contenido] of Object.entries(archivos)) {
