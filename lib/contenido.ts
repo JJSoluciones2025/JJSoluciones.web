@@ -214,8 +214,10 @@ export const PROYECTOS: Proyecto[] = [
       "Clientes y cuenta corriente",
       "Reportes de ventas por día, semana y mes",
     ],
-    tecnologias: ["Next.js", "Node.js", "PostgreSQL"],
-    estado: "Instalado en el local del cliente",
+    tecnologias: ["React", "Node.js", "PostgreSQL"],
+    url: "https://trapitos.jsoluciones.com.ar",
+    urlTexto: "Abrir el sistema en vivo",
+    estado: "Demo en vivo",
   },
   {
     id: "ls-entrenamientos",
