@@ -8,12 +8,21 @@ import FondoTecnologias from "@/components/FondoTecnologias";
 import { MINUTO_FUTBOL } from "@/lib/contenido";
 
 export const metadata: Metadata = {
-  title: "Descargá Minuto Fútbol para Android",
+  title: "Minuto Fútbol: app de la Liga de General Arenales para Android",
   description:
-    "La app de la Liga Deportiva de General Arenales: resultados en vivo, minuto a minuto, fixture, tabla y notificaciones. Gratis para Android.",
+    "Descargá gratis Minuto Fútbol, la app de la Liga Deportiva de General Arenales: resultados en vivo, minuto a minuto, fixture, tabla, goleadores y notificaciones.",
+  alternates: { canonical: "app/" },
   openGraph: {
     title: "Minuto Fútbol — la app de la liga",
     description: "Resultados en vivo, minuto a minuto y notificaciones. Descargala gratis para Android.",
+    url: "app/",
+    images: [{ url: "og-minuto-futbol.png", width: 1200, height: 630, alt: "Minuto Fútbol para Android" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Minuto Fútbol — la app de la liga",
+    description: "Resultados en vivo, minuto a minuto y notificaciones. Descargala gratis para Android.",
+    images: ["og-minuto-futbol.png"],
   },
 };
 

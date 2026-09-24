@@ -3,6 +3,7 @@ import PaginaLegal from "@/components/PaginaLegal";
 import { EMPRESA } from "@/lib/contenido";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "legal/privacidad/" },
   title: "Política de Privacidad",
   description: "Qué datos tratamos, para qué y cuáles son tus derechos según la Ley 25.326 de Protección de Datos Personales.",
 };

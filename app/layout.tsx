@@ -4,29 +4,40 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import { EMPRESA } from "@/lib/contenido";
+import { DESCRIPCION_PRINCIPAL, GOOGLE_VERIFICACION, TITULO_PRINCIPAL, URL_SITIO } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
-// URL pública: GitHub Pages hasta que esté el dominio propio en cPanel
-const URL_SITIO = process.env.NEXT_PUBLIC_SITE_URL || "https://jjsoluciones2025.github.io/JJSoluciones.web";
-
+// metadataBase lleva barra final para que las rutas relativas (og.png) se
+// resuelvan bien también en GitHub Pages, donde el sitio vive en una subcarpeta.
 export const metadata: Metadata = {
-  metadataBase: new URL(URL_SITIO),
+  metadataBase: new URL(`${URL_SITIO}/`),
   title: {
-    default: "JJSoluciones — Sistemas, sitios web y soporte técnico",
+    default: TITULO_PRINCIPAL,
     template: "%s · JJSoluciones",
   },
-  description: `${EMPRESA.eslogan}. Desarrollo de sistemas de gestión, sitios web, apps y reparación de PC y notebooks.`,
+  description: DESCRIPCION_PRINCIPAL,
+  applicationName: "JJSoluciones",
+  authors: [{ name: "JJSoluciones", url: URL_SITIO }],
+  creator: "JJSoluciones",
   icons: { icon: "/marca/logo.svg", apple: "/marca/logo.svg" },
+  formatDetection: { telephone: false },
   openGraph: {
     type: "website",
     siteName: "JJSoluciones",
     locale: "es_AR",
-    title: "JJSoluciones — Sistemas, sitios web y soporte técnico",
-    description: EMPRESA.eslogan,
-    images: [{ url: "/marca/logo.svg", width: 512, height: 512, alt: "JJSoluciones" }],
+    title: TITULO_PRINCIPAL,
+    description: DESCRIPCION_PRINCIPAL,
+    images: [{ url: "og.png", width: 1200, height: 630, alt: "JJSoluciones: sistemas, sitios web y soporte técnico" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITULO_PRINCIPAL,
+    description: DESCRIPCION_PRINCIPAL,
+    images: ["og.png"],
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  verification: GOOGLE_VERIFICACION ? { google: GOOGLE_VERIFICACION } : undefined,
 };
 
 export const viewport: Viewport = {

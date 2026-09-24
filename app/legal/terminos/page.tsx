@@ -3,6 +3,7 @@ import PaginaLegal from "@/components/PaginaLegal";
 import { EMPRESA } from "@/lib/contenido";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "legal/terminos/" },
   title: "Términos y Condiciones",
   description: "Condiciones de uso del sitio y de contratación de los servicios de JJSoluciones.",
 };

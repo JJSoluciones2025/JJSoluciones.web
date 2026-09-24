@@ -3,6 +3,7 @@ import PaginaLegal from "@/components/PaginaLegal";
 import BotonConfigurarCookies from "@/components/BotonConfigurarCookies";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "legal/cookies/" },
   title: "Política de Cookies",
   description: "Qué cookies y almacenamiento local usa jsoluciones.com.ar y cómo controlarlos.",
 };
