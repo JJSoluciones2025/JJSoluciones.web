@@ -272,8 +272,8 @@ export const PROYECTOS: Proyecto[] = [
       "Panel del organizador: fechas, inscripciones y pagos",
     ],
     tecnologias: ["Laravel", "PHP", "MySQL", "Google"],
-    url: "https://prode.jsoluciones.com.ar",
-    urlTexto: "Ver el prode en vivo",
+    url: "https://arenales.prode.jsoluciones.com.ar",
+    urlTexto: "Ver el Prode de Arenales",
     estado: "En desarrollo · fase 2 de 7",
   },
   {
